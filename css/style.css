@@ -1,0 +1,180 @@
+@font-face{
+	font-family: "animeace";
+	src:url(../font/animeace.ttf);
+}
+
+body{
+	font:18px/36px "animeace","arial narrow",sans-serif;
+	background-color: #ffeead;
+	margin: 10% 0;
+}
+
+h1{
+	font-size: 80px;
+	color: #96ceb4;
+	margin: 50px 0;
+	text-align: center;
+	text-shadow: 1px 1px 3px black;
+}
+
+.container{
+	width: 600px;
+	background-color: #96ceb4;
+	margin: auto;
+	padding: 30px;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,.3);
+	border-radius: 5px;
+}
+
+.galery li{
+	width: 120px;
+	height: 120px;
+	border: 5px #ffeead solid;
+	float: left;
+	margin:0 10px;
+	position: relative;
+}
+
+.galery li,
+.galery li span,
+.galery li a img{
+	border-radius: 50%;
+}
+
+.galery li span{
+	display: block;
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	background-color: rgba(88,130,110,.6);
+	position: absolute;
+	top: 0;
+	text-align: center;
+	line-height: 120px;
+	color: #ffeead;
+	text-shadow: 1px 1px 1px #fef6d5;
+	opacity: 0;
+	transition: .3s;
+	transform: scale(0) rotate(0);
+}
+
+.galery li a:hover span{
+	opacity: 1;
+	transform: scale(1) rotate(360deg);
+
+}
+
+.clear{
+	clear: both;
+}
+
+.overlay{
+	position: fixed;
+	transition: .3s;
+	width: 0;
+	height: 0;
+	left: -500px;
+	background: rgba(0,0,0,0);
+	overflow: hidden;
+	padding: 80px;
+	z-index: 9999;
+}
+
+.overlay:target{
+	width: auto;
+	height: auto;
+	top: 0;
+	bottom:0;
+	right: -500px;
+	text-align: center;
+	background-color: rgba(0,0,0,.7);
+}
+
+.overlay img {
+	height: 100%;
+	box-shadow: 2px 2px 5px rgba(0,0,0,.5)
+}
+
+.overlay:target img{
+	animation: zf 2s;
+}
+
+.overlay .close{
+	position: absolute;
+	top: 30px;
+	left: 50%;	
+	margin-left: -50px;
+	color: white;
+	text-decoration: none;
+	border: 1px solid white;
+	line-height: 14px;
+	padding: 5px;
+	opacity: 0;
+}
+
+.overlay:target .close{
+	animation: df 1s .5s forwards;
+}
+
+.overlay:target .next{
+	animation: fade 1s .8s forwards; 
+}
+
+.overlay:target .prev{
+	animation: fade 1s .8s forwards; 
+}
+
+.next,.prev{
+	width: 100px;
+	height: 100px;
+	background-image: url(../photo/kanan.png);
+	position: absolute;
+	text-indent: -99999px;
+	top: 42%;
+	margin-left: 30px;
+	opacity: 0;
+}
+
+.prev{
+	background-image: url(../photo/kiri.png);
+	text-indent: -99999px;
+	margin-left: -130px;
+}
+/*animasi*/
+@keyframes zf{
+	0%{
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	23%{
+		transform: scale(.5);
+	}
+
+	100%{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes df{
+	0%{
+		opacity: 0;
+		margin-top: -20px;
+	}
+
+	100%{
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+
+@keyframes fade{
+	0%{
+		opacity: 0;		
+	}
+
+	100%{
+		opacity: 1;
+	}
+}
